@@ -14,8 +14,11 @@ $route['api/driver/turun/(:any)']['POST'] = 'Api/OrderController/turnBus/$1';
 
 //web
 $route['auth/parent/register'] = 'Web/AuthController/registerParent';
-
 $route['auth/driver/register'] = 'Web/AuthController/registerDriver';
+
+$route['auth/admin/login'] = 'Web/AuthController/registerDriver';
+
+
 
 
 

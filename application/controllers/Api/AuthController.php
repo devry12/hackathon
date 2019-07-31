@@ -46,7 +46,6 @@ class AuthController extends CI_Controller {
       ];
       $this->response($data);
     }
-    // return $this->response($this->PresensiModel->getDataPeserta());
   }
   
 
