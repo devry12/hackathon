@@ -35,7 +35,7 @@
           <a class="nav-link" href="#">Kontak</a>
         </li>
         <li class="nav-item ml-5">
-          <button type="button" class="btn sm-btn-orange"><i class="fas fa-user-circle" style="color:white;"></i> Login</button>
+          <a href="<?=base_url('Loginusers')?>" class="btn sm-btn-orange"><i class="fas fa-user-circle" style="color:white;"></i> Login</a>
         </li>
 
 
@@ -49,9 +49,11 @@
 	<div class="container">
 		<div class="banner-description">
 			<h1 class="text-white"> <b>Pickup Me</b></h1><br>
-			<p class="text-white lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. lorem
-				Nulla non suscipit tortor. Nullam diam enim.</p><br>
-			<button type="button" class="btn btn-dark">Baca Lebih Lanjut</button>
+			<p class="text-white lead">Antar Jemput Putra/Putri Kesayangan Anda Tanpa Khawatir.</p><br>
+			<div class="">
+        <a href="<?=base_url('register/orang_tua')?>"  class="btn btn-dark">Daftar Sebagai Orang Tua</a>
+        <a href="<?=base_url('register/driver')?>"  class="btn btn-dark">Daftar Sebagai Mitra Driver</a>
+      </div>
 		</div>
 	</div>
 </section>
