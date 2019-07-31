@@ -6,7 +6,7 @@ class AuthController extends CI_Controller {
     parent::__construct();
     header("Access-Control-Allow-Headers: origin, x-requested-with, content-type, x-api-key");
     header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
-    // $this->load->model('AuthModel');
+    $this->load->model('AuthModel');
   }
 
   function response($data)
@@ -24,22 +24,51 @@ class AuthController extends CI_Controller {
         $this->load->view('welcome');
     }
 
-    public function register()
-    {
-        $this->form_validation->set_rules('username','Username','required');
-        $this->form_validation->set_rules('password','Password','required');
-        $this->form_validation->set_rules('role','Role','required');
-        $this->form_validation->set_error_delimiters('', '');
-        if ($this->form_validation->run() == FALSE)
-        {
-            $data = [
-                'success' => false,
-                'message' => validation_errors(),
-              ];
-              return $this->response($data);
-        }else{
-             echo "berhasil";
-        }
+    public function login()
+	{
+    $this->form_validation->set_rules('username', 'Username', 'required|callback_CheckUsername');
+    $this->form_validation->set_rules('password', 'Password', 'required|callback_CheckPassword');
+    $this->form_validation->set_error_delimiters('', '');
+    if ($this->form_validation->run() == false) {
+      $data = [
+        'success' => false,
+        'message' => validation_errors(),
+      ];
+      $this->response($data);
+    }else {
+      $user = $this->AuthModel->get_user('username',$this->input->post('username'));
+      $data = [
+        'success' => true,
+        'idUsers'     => $user['idusers'],
+        'username'     => $user['username'],
+        'role'     => $user['roleName'],
+        'message' => 'berhasil',
+      ];
+      $this->response($data);
     }
+    // return $this->response($this->PresensiModel->getDataPeserta());
+  }
+  
+
+  //this for check Nim
+  public function CheckUsername($username)
+  {
+    if(!$this->AuthModel->get_user('username',$username)){
+      $this->form_validation->set_message('CheckUsername','This %s Not exists.');
+      return false;
+    }
+    return true;
+  }
+  //this for check password
+public function CheckPassword($password)
+{
+    $user = $this->AuthModel->get_user('username',$this->input->post('username'));
+    if (!$this->AuthModel->CheckPassword($user['username'],$password))
+    {
+      $this->form_validation->set_message('CheckPassword','This %s is incorrect.');
+      return false;
+    }
+    return true;
+}
 
 }
