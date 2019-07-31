@@ -66,6 +66,18 @@ class AuthController extends CI_Controller {
         echo "berhasil";
   }
 }
+    public function loginAdmin()
+	{
+    $this->form_validation->set_rules('username', 'Username', 'required|callback_CheckUsername');
+    $this->form_validation->set_rules('password', 'Password', 'required|callback_CheckPassword');
+    $this->form_validation->set_error_delimiters('', '');
+    if ($this->form_validation->run() == false) {
+        $this->load->view('Auth/loginParent');
+    }else {
+        
+        echo "berhasil";
+  }
+}
 
       //this for check Nim
   public function CheckUsername($username)
