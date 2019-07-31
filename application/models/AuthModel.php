@@ -10,6 +10,19 @@ class AuthModel extends CI_Model {
         ];
 
         if($this->db->insert('users',$data)){
+          $id = $this->db->insert_id();
+
+          if ($this->input->post('role') == 'parent') {
+            $datas = [
+              'iduserParents' => $id
+            ];
+            $this->db->insert('userParents',$datas);
+          }else {
+            $datas = [
+              'iduserDrivers' => $id
+            ];
+            $this->db->insert('userDrivers',$datas);
+          };
             return true;
         }else{
             return false;
