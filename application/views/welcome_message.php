@@ -2,6 +2,8 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="en">
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 <head>
 	<meta charset="utf-8">
 	<title>Welcome to CodeIgniter</title>
@@ -66,6 +68,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</style>
 </head>
 <body>
+
+<?php
+// Get Flash data on view 
+$this->session->flashdata('success');
+?>
 
 <div id="container">
 	<h1>Welcome to CodeIgniter!</h1>
