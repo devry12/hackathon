@@ -1,0 +1,142 @@
+*{
+  ont-family: Open Sans;
+}
+.sm-brand{
+  font-size: 30px;
+  color: #FE6003 !important;
+}
+
+.sm-color-black{
+  background-color: #313336;
+}
+.sm-color-orange{
+  background-color: #FE6003;
+}
+
+/* button */
+.sm-btn-orange{
+  background-color: #FE6003;
+}
+
+.bg-img{
+  background-image: url('../../images/banner/bg1.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  max-width: 100vw;
+}
+
+.banner-description{
+  height: 90vh;
+  padding-top: 10%;
+  max-width: 60%;
+  font-weight: bold;
+}
+
+
+
+/* custom css bootstrap */
+.active a{
+  position: fixed;
+  color: white !important;
+  background-color: #FE6003;
+  border-top-right-radius: 40px;
+  border-bottom-right-radius: 40px;
+  width: 15%;
+
+}
+
+.navbar-nav .nav-item .nav-link{
+  color: #313336;
+}
+
+
+
+
+/*
+*
+* ==========================================
+* CUSTOM UTIL CLASSES
+* ==========================================
+*
+*/
+
+.vertical-nav {
+  min-width: 17rem;
+  width: 17rem;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s;
+}
+
+.page-content {
+  width: calc(100% - 17rem);
+  margin-left: 17rem;
+  transition: all 0.4s;
+}
+
+/* for toggle behavior */
+
+#sidebar.active {
+  margin-left: -17rem;
+}
+
+#content.active {
+  width: 100%;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  #sidebar {
+    margin-left: -17rem;
+  }
+  #sidebar.active {
+    margin-left: 0;
+  }
+  #content {
+    width: 100%;
+    margin: 0;
+  }
+  #content.active {
+    margin-left: 17rem;
+    width: calc(100% - 17rem);
+  }
+}
+
+.sm-table-scroll-presensi {
+    height:200px;
+    overflow-y:auto;
+    width: 100%;
+}
+.sm-hight-detail-presensi{
+  height:100%;
+}
+
+/*
+*
+* ==========================================
+* FOR DEMO PURPOSE
+* ==========================================
+*
+*/
+
+body {
+  background: white;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.separator {
+  margin: 3rem 0;
+  border-bottom: 1px dashed #fff;
+}
+
+.text-uppercase {
+  letter-spacing: 0.1em;
+}
+
+.text-gray {
+  color: #aaa;
+}
